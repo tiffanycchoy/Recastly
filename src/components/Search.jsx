@@ -10,8 +10,15 @@ class Search extends React.Component {
   render() {
     return (
       <div className="search-bar form-inline">
-        <input onChange = {this.search} className="form-control" type="text" />
-        <button className="btn hidden-sm-down" onClick = {this.props.handleSearchVideoClick}>
+        <input
+          className="form-control" type="text"
+          onChange = {this.search}
+          onKeyPress = {this.props.handleSearchEnter}
+          />
+        <button
+          className="btn hidden-sm-down"
+          onClick = {this.props.handleSearchVideoClick}
+        >
           <span className="glyphicon glyphicon-search"></span>
         </button>
       </div>

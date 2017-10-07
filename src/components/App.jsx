@@ -10,6 +10,7 @@ class App extends React.Component {
     this.handleSearchTerm = this.handleSearchTerm.bind(this);
     this.handleSearchVideoClick = this.handleSearchVideoClick.bind(this);
     this.handleYouTubeData = this.handleYouTubeData.bind(this);
+    this.handleSearchEnter = this.handleSearchEnter.bind(this);
   }
   handleVideoSelection(video) {
     this.setState({
@@ -23,12 +24,16 @@ class App extends React.Component {
     })
   }
   handleSearchVideoClick() {
-    console.log('video search clicked');
     window.searchYouTube({query: this.state.searchTerm, max:5, key: window.YOUTUBE_API_KEY}, this.handleYouTubeData);
   }
 
+  handleSearchEnter(event){
+    if (event.charCode === 13) {
+      window.searchYouTube({query: this.state.searchTerm, max:5, key: window.YOUTUBE_API_KEY}, this.handleYouTubeData);
+    }
+  }
+
   handleYouTubeData(data) {
-    console.log('the youtube data is ', data)
     this.setState({
       videos: data.items,
       video: data.items[0]
@@ -43,7 +48,11 @@ class App extends React.Component {
       <div>
         <nav className="navbar">
           <div className="col-md-6 offset-md-3">
-            <Search handleSearchTerm = {this.handleSearchTerm} handleSearchVideoClick = {this.handleSearchVideoClick}/>
+            <Search
+              handleSearchTerm = {this.handleSearchTerm}
+              handleSearchVideoClick = {this.handleSearchVideoClick}
+              handleSearchEnter = {this.handleSearchEnter}
+            />
           </div>
         </nav>
         <div className="row">
