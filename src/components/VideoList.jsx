@@ -6,7 +6,7 @@ class VideoList extends React.Component {
     return (
       <div className="video-list">
         {this.props.videoListData.map((video, index) =>
-          <VideoListEntry video = {video} key = {index}/>
+          <VideoListEntry video = {video} key = {index} handleClick = {this.props.handleClick}/>
         )}
       </div>
     )
