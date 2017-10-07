@@ -1,0 +1,11 @@
+# Ignore API Key
+/src/config/youtube.js
+
+# Compiled directories
+/compiled
+
+# Dependency directories
+node_modules
+
+# OS X
+.DS_Store
