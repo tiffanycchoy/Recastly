@@ -36,7 +36,6 @@ class App extends React.Component {
   }
 
   componentDidMount() {
-    //console.log('data is ', data);
     window.searchYouTube({query: 'cats', max: 5, key: window.YOUTUBE_API_KEY}, this.handleYouTubeData);
   }
   render() {
